@@ -155,6 +155,8 @@ if [ -n "${USE_VULKAN}" ]; then
   if [ -n "${USE_VULKAN_RELAXED_PRECISION}" ]; then
     CMAKE_ARGS+=("-DUSE_VULKAN_RELAXED_PRECISION=ON")
   fi
+else
+  CMAKE_ARGS+=("-DUSE_VULKAN=OFF")
 fi
 
 # Use-specified CMake arguments go last to allow overridding defaults
