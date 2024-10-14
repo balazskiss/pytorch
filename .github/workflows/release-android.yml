@@ -28,6 +28,7 @@ jobs:
           echo "ANDROID_SDK_ROOT is set to $ANDROID_SDK_ROOT"
           export ANDROID_HOME=$ANDROID_SDK_ROOT
           export ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/24.0.8215888
+          export ANDROID_NDK=$ANDROID_NDK_HOME
           export PATH=$ANDROID_NDK_HOME:$PATH
           echo "ANDROID_NDK_HOME is set to $ANDROID_NDK_HOME"
 
