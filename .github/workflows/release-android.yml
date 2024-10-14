@@ -13,7 +13,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Hello world
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Install NDK and CMake
+        run: |
+          sdkmanager --install "ndk;24.0.8215888"
+          sdkmanager --install "cmake;3.10.2.4988404"
+          echo "Installed NDK and CMake."
+
+      - name: Build Android Libs
         run: |
           chmod +x ./scripts/package_android.sh
           ./scripts/package_android.sh
