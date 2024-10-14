@@ -34,5 +34,6 @@ jobs:
 
       - name: Build Android Libs
         run: |
+          echo "ANDROID_NDK is set to $ANDROID_NDK"
           chmod +x ./scripts/package_android.sh
           ./scripts/package_android.sh
