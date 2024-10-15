@@ -2,8 +2,6 @@
 
 set -eu
 
-export set ANDROID_NDK=~/Library/Android/sdk/ndk/24.0.8215888
-
 ANDROID_ABI_LIST=(armeabi-v7a arm64-v8a x86 x86_64)
 
 rm -rf build_android
