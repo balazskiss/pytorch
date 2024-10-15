@@ -46,3 +46,26 @@ jobs:
           echo "ANDROID_NDK is set to $ANDROID_NDK"
           chmod +x ./scripts/package_android.sh
           ./scripts/package_android.sh
+
+      - name: Create tar.gz of libtorch android builds
+        run: |
+          tar -czvf libtorch-android.tar.gz -C out android/
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
+        with:
+          tag_name: ${{ github.ref }}  # Use the current tag for release
+          release_name: Release ${{ github.ref }}  # Name of the release
+          draft: true
+          prerelease: false
+
+      - name: Upload Libtorch Android build
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: libtorch-android.tar.gz
+          asset_name: libtorch-android.tar.gz
+          asset_content_type: application/gzip
