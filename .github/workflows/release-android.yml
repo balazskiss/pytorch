@@ -57,8 +57,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
         with:
-          tag_name: ${{ github.ref }}  # Use the current tag for release
-          release_name: Release ${{ github.ref }}  # Name of the release
+          tag_name: "v${{ github.run_number }}"  # Use the current tag for release
+          release_name: Release v${{ github.run_number }}  # Name of the release
           draft: true
           prerelease: false
 
