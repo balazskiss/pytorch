@@ -25,12 +25,6 @@ jobs:
           sdkmanager --install "cmake;3.10.2.4988404"
           echo "Installed NDK and CMake."
 
-      - name: Install Backtrace Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libbacktrace-dev
-          echo "Installed libbacktrace-dev."
-
       - name: Set up environment variables
         run: |
           echo "Setting up environment variables."
