@@ -34,6 +34,10 @@ jobs:
           export ANDROID_NDK=$ANDROID_NDK_HOME
           export PATH=$ANDROID_NDK_HOME:$PATH
           echo "ANDROID_NDK_HOME is set to $ANDROID_NDK_HOME"
+          echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/24.0.8215888" >> $GITHUB_ENV
+          echo "ANDROID_NDK=$ANDROID_SDK_ROOT/ndk/24.0.8215888" >> $GITHUB_ENV
+          echo "PATH=$ANDROID_SDK_ROOT/ndk/24.0.8215888:$PATH" >> $GITHUB_ENV
 
       - name: Build Android Libs
         run: |
