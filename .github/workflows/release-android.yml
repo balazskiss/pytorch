@@ -25,14 +25,16 @@ jobs:
           sdkmanager --install "cmake;3.10.2.4988404"
           echo "Installed NDK and CMake."
 
+      - name: Install Backtrace Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libbacktrace-dev
+          echo "Installed libbacktrace-dev."
+
       - name: Set up environment variables
         run: |
           echo "Setting up environment variables."
           echo "ANDROID_SDK_ROOT is set to $ANDROID_SDK_ROOT"
-          export ANDROID_HOME=$ANDROID_SDK_ROOT
-          export ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/24.0.8215888
-          export ANDROID_NDK=$ANDROID_NDK_HOME
-          export PATH=$ANDROID_NDK_HOME:$PATH
           echo "ANDROID_NDK_HOME is set to $ANDROID_NDK_HOME"
           echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> $GITHUB_ENV
           echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/24.0.8215888" >> $GITHUB_ENV
