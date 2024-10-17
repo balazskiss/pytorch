@@ -54,16 +54,16 @@ jobs:
         run: |
           tar -czvf libtorch-android.tar.gz -C out android/
 
-      - name: Create GitHub Release
+      - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
         with:
-          tag_name: ${{ github.ref }}  # Use the current tag for release
-          release_name: Release ${{ github.ref }}  # Name of the release
-          draft: true
+          tag_name: v1.0.0
+          release_name: Release v1.0.0
+          draft: false
           prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Libtorch Android build
         uses: actions/upload-release-asset@v1
